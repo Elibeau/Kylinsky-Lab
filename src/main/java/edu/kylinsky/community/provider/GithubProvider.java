@@ -36,7 +36,8 @@ public class GithubProvider {
         OkHttpClient client = new OkHttpClient();
 
         Request request = new Request.Builder()
-                .url("https://api.github.com/user?access_token="+ accessToken)
+                .url("https://api.github.com/user")
+                .header("Authorization","token "+accessToken)   //token后面有个空格，加上这一行是因为GitHub改版了，需要从 header 里面传递
                 .build();
         try {
             Response response = client.newCall(request).execute();

@@ -21,3 +21,15 @@ Email:648376320@qq.com
 [mvnrepository:即mvn仓库](https://mvnrepository.com/)
 
 
+<h2>一些项目上的更新</h2>
+在GithubProvider.java文件中，获取用户名的代码段，需要更改为入下所示：
+```
+Request request = new Request.Builder()
+.url("https://api.github.com/user")
+.header("Authorization","token "+accessToken) 
+.build();
+```
+是因为GitHub改版了，需要从 header 里面传递，“token后面有个空格”。
+[具体参考点击此处](https://docs.github.com/en/free-pro-team@latest/rest/overview/other-authentication-methods)
+
+
